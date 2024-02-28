@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('partials._hero')
+
 <div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4">
 
     @unless (count($listings) == 0)
@@ -17,7 +19,7 @@
         <div class="flex">
             <img
                 class="hidden w-48 mr-6 md:block"
-                src="images/acme.png"
+                src={{asset('images/no-image.png')}}
                 alt=""
             />
             <div>

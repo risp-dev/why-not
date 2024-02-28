@@ -24,12 +24,12 @@
                 },
             };
         </script>
-        <title>LaraGigs | Find Laravel Jobs & Projects</title>
+        <title>Why not? | Find Laravel Jobs & Projects</title>
     </head>
     <body class="mb-48">
         <nav class="flex justify-between items-center mb-4">
             <a href="index.html"
-                ><img class="w-24" src="images/logo.png" alt="" class="logo"
+                ><img class="w-24" src={{asset('images/logo.png')}} alt="" class="logo"
             /></a>
             <ul class="flex space-x-6 mr-6 text-lg">
                 <li>
