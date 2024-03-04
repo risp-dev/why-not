@@ -13,6 +13,7 @@
 
      <x-listing-card :listing="$listing" />
     @endforeach
+    
    
     @else
     <p>No listings found</p>
