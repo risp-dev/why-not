@@ -19,21 +19,12 @@ use App\Models\Listing;
 //All listings
 Route::get('/', [ListingController::class, 'index']);
 
-//Single listing ammended with 404
+ //Show Create Form
+ Route::get('/listings/create', [ListingController::class, 'create']);
+
+ //Store Listing Data
+ Route::post('/listings', [ListingController::class, 'store']);
+
+ //Single listing ammended with 404 and it must be below a create and store
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
-
-
-Route::get('/labas', function() {
-    return response('<h1>As sakau labas</h1>', 200)
-    ->header('Content-Type', 'text/plain');
-});
-
-Route::get('posts/{id}', function($id) {
-    return response('Post ' . $id);
-})->where('id', '[0-9]+');
-
-Route::get('/search', function(Request $request) {
-    dd($request);
-    //return $request->name . ' ' . $request->city;
-});
