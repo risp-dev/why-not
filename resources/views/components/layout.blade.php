@@ -13,6 +13,7 @@
             referrerpolicy="no-referrer"
         />
         <script src="https://cdn.tailwindcss.com"></script>
+        <script src="//unpkg.com/alpinejs" defer></script>
         <script>
             tailwind.config = {
                 theme: {
@@ -59,5 +60,6 @@
                 >Post Job</a
             >
         </footer>
+        <x-flash-message />
     </body>
 </html>

@@ -39,6 +39,7 @@ public function create() {
             'description' => 'required',
         ]);
         Listing::create($formFields);
-        return redirect('/');
+        //For a message, create a component like flash-message.blade.php
+        return redirect('/')->with('message', 'Listing created successfuly');
     }
 }
