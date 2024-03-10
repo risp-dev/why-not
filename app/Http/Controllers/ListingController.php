@@ -29,6 +29,7 @@ public function create() {
 
     public function store(Request $request) {
         //dd($request->all());
+        //dd($request->file('logo'));
         $formFields = $request->validate([
             'title' => 'required',
             'company' => ['required', Rule::unique('listings', 'company')],
@@ -37,7 +38,12 @@ public function create() {
             'email' => ['required', 'email'],
             'tags' => 'required',
             'description' => 'required',
-        ]);
+        ]); 
+
+        if ($request->hasFile('logo')) {
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        }
+
         Listing::create($formFields);
         //For a message, create a component like flash-message.blade.php
         return redirect('/')->with('message', 'Listing created successfuly');

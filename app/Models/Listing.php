@@ -10,7 +10,7 @@ class Listing extends Model
     use HasFactory;
 
     //to avoid fillable error when posting a form:
-        protected $fillable = ['title', 'company', 'location', 'email', 'website', 'tags', 'description'];
+        protected $fillable = ['title', 'logo', 'company', 'location', 'email', 'website', 'tags', 'description'];
 
     public function scopeFilter($query, array $filters) {
         if($filters['tag'] ?? false) {
