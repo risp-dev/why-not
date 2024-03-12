@@ -48,4 +48,31 @@ public function create() {
         //For a message, create a component like flash-message.blade.php
         return redirect('/')->with('message', 'Listing created successfuly');
     }
+
+    //Show Edit Form
+    public function edit(Listing $listing) {
+        //dd($listing);
+        //dd($listing->title);
+        return view('listings.edit', ['listing' => $listing]);
+    }
+
+    //Update Listing data
+    public function update(Request $request, Listing $listing) {
+        $formFields = $request->validate([
+            'title' => 'required',
+            'company' => 'required',
+            'location' => 'required',
+            'website' => 'required',
+            'email' => 'required',
+            'tags' => 'required',
+            'description' => 'required'
+        ]);
+        if($request->hasFile('logo')) {
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+            }
+            
+            $listing->update($formFields);
+
+            return back()->with('message', 'Listing updated successfully!');
+    }
 }

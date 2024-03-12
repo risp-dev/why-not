@@ -25,6 +25,12 @@ Route::get('/', [ListingController::class, 'index']);
  //Store Listing Data
  Route::post('/listings', [ListingController::class, 'store']);
 
+ //Show Edit Form
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
+
+//Update Listing
+Route::put('/listings/{listing}', [ListingController::class, 'update']);
+
  //Single listing ammended with 404 and it must be below a create and store
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
