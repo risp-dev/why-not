@@ -31,6 +31,9 @@ Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
 //Update Listing
 Route::put('/listings/{listing}', [ListingController::class, 'update']);
 
+//Delete Listing (destroy or delete or Petras - no matter but the same must be on controller)
+Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
+
  //Single listing ammended with 404 and it must be below a create and store
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 

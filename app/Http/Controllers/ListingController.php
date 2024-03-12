@@ -75,4 +75,10 @@ public function create() {
 
             return back()->with('message', 'Listing updated successfully!');
     }
+
+    //Destroy Method
+    public function destroy(Listing $listing) {
+        $listing->delete();
+        return redirect('/')->with('message', 'Listing deleted successfully!');
+    }
 }
