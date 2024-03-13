@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ListingController;
+use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Listing;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ListingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,8 @@ Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
  //Single listing ammended with 404 and it must be below a create and store
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
+//Show Register/Create Form php artisan make:controller UserController
+Route::get('/register', [UserController::class, 'create']);
+
+//Create New User
+Route::post('/users', [UserController::class, 'store']);
