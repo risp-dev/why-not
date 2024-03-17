@@ -10,7 +10,7 @@ class Listing extends Model
     use HasFactory;
 
     //to avoid fillable error when posting a form:
-        protected $fillable = ['title', 'logo', 'company', 'location', 'email', 'website', 'tags', 'description'];
+        protected $fillable = ['title', 'logo', 'company', 'location', 'email', 'website', 'tags', 'description', 'user_id'];
 
     public function scopeFilter($query, array $filters) {
         if($filters['tag'] ?? false) {
@@ -23,4 +23,9 @@ class Listing extends Model
         }
 
     }
+
+    //Relationship To User
+     public function user() {
+        return $this->belongsTo(User::class, 'user_id');
+     }
 }

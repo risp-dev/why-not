@@ -29,11 +29,15 @@ Route::get('/', [ListingController::class, 'index']);
  //Show Edit Form
 Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->middleware('auth');
 
+
 //Update Listing
 Route::put('/listings/{listing}', [ListingController::class, 'update'])->middleware('auth');
 
 //Delete Listing (destroy or delete or Petras - no matter but the same must be on controller)
 Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->middleware('auth');
+
+//Manage Listings
+Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware('auth');
 
  //Single listing ammended with 404 and it must be below a create and store
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
@@ -52,3 +56,5 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 
 //Log In User
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
+ 
