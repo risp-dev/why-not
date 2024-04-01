@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+//fixing storage:
+use Illuminate\Support\Facades\Storage;
+//end of fS
 
 class ListingController extends Controller
 {
@@ -39,6 +42,7 @@ public function create() {
             'email' => ['required', 'email'],
             'tags' => 'required',
             'description' => 'required',
+            //'logo' => 'required|image', //Validation for logo upload added
         ]); 
 
         // if (auth()->check()) {
@@ -83,7 +87,8 @@ public function create() {
             'website' => 'required',
             'email' => 'required',
             'tags' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            
         ]);
         if($request->hasFile('logo')) {
             $formFields['logo'] = $request->file('logo')->store('logos', 'public');
